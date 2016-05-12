@@ -13,4 +13,22 @@ public interface Stax2Handler {
 	void startDocument();
 
 	void startElement(QName qname);
+
+	void attribute();
+
+	void comment();
+
+	void cdata();
+
+	void dtd();
+
+	void entityDeclaration();
+
+	void namespace();
+
+	void notationDeclaration();
+
+	void processingInstruction();
+
+	void space();
 }

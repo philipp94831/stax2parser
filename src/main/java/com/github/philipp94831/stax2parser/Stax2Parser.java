@@ -9,7 +9,7 @@ import javax.xml.stream.XMLStreamException;
 import org.codehaus.stax2.XMLInputFactory2;
 import org.codehaus.stax2.XMLStreamReader2;
 
-public abstract class Stax2Parser {
+public class Stax2Parser {
 
 	private final Stax2Handler handler;
 	private XMLStreamReader2 xmlStreamReader;
@@ -33,31 +33,31 @@ public abstract class Stax2Parser {
 				handler.endElement(xmlStreamReader.getName());
 				break;
 			case XMLStreamConstants.ATTRIBUTE:
-				// TODO
+				handler.attribute();
 				break;
 			case XMLStreamConstants.CDATA:
-				// TODO
+				handler.cdata();
 				break;
 			case XMLStreamConstants.COMMENT:
-				// TODO
+				handler.comment();
 				break;
 			case XMLStreamConstants.DTD:
-				// TODO
+				handler.dtd();
 				break;
 			case XMLStreamConstants.ENTITY_DECLARATION:
-				// TODO
+				handler.entityDeclaration();
 				break;
 			case XMLStreamConstants.NAMESPACE:
-				// TODO
+				handler.namespace();
 				break;
 			case XMLStreamConstants.NOTATION_DECLARATION:
-				// TODO
+				handler.notationDeclaration();
 				break;
 			case XMLStreamConstants.PROCESSING_INSTRUCTION:
-				// TODO
+				handler.processingInstruction();
 				break;
 			case XMLStreamConstants.SPACE:
-				// TODO
+				handler.space();
 				break;
 			default:
 				break;
