@@ -1,14 +1,16 @@
 package com.github.philipp94831.stax2parser;
 
+import javax.xml.namespace.QName;
+
 public interface Stax2Handler {
 
 	void characters(String text);
 
 	void endDocument();
 
-	void endElement(String localPart, String namespaceURI);
+	void endElement(QName qname);
 
 	void startDocument();
 
-	void startElement(String localPart, String namespaceURI);
+	void startElement(QName qname);
 }

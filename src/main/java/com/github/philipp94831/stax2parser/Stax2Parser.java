@@ -24,15 +24,13 @@ public abstract class Stax2Parser {
 			final int eventType = xmlStreamReader.next();
 			switch (eventType) {
 			case XMLStreamConstants.START_ELEMENT:
-				handler.startElement(xmlStreamReader.getName().getLocalPart(),
-						xmlStreamReader.getName().getNamespaceURI());
+				handler.startElement(xmlStreamReader.getName());
 				break;
 			case XMLStreamConstants.CHARACTERS:
 				handler.characters(xmlStreamReader.getText());
 				break;
 			case XMLStreamConstants.END_ELEMENT:
-				handler.endElement(xmlStreamReader.getName().getLocalPart(),
-						xmlStreamReader.getName().getNamespaceURI());
+				handler.endElement(xmlStreamReader.getName());
 				break;
 			case XMLStreamConstants.ATTRIBUTE:
 				// TODO
