@@ -14,7 +14,7 @@ public interface Stax2Handler {
 
 	void startElement(QName qname);
 
-	void attribute();
+	void attribute(QName qName, String value);
 
 	void comment();
 

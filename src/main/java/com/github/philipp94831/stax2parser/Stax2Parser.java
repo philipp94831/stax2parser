@@ -1,7 +1,6 @@
 package com.github.philipp94831.stax2parser;
 
 import java.io.InputStream;
-
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -25,6 +24,10 @@ public class Stax2Parser {
 			switch (eventType) {
 			case XMLStreamConstants.START_ELEMENT:
 				handler.startElement(xmlStreamReader.getName());
+				int c = xmlStreamReader.getAttributeCount();
+				for(int i = 0; i < c; i++) {
+					handler.attribute(xmlStreamReader.getAttributeName(i), xmlStreamReader.getAttributeValue(i));
+				}
 				break;
 			case XMLStreamConstants.CHARACTERS:
 				handler.characters(xmlStreamReader.getText());
@@ -33,7 +36,6 @@ public class Stax2Parser {
 				handler.endElement(xmlStreamReader.getName());
 				break;
 			case XMLStreamConstants.ATTRIBUTE:
-				handler.attribute();
 				break;
 			case XMLStreamConstants.CDATA:
 				handler.cdata();

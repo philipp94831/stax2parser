@@ -35,7 +35,7 @@ public abstract class DefaultHandler implements Stax2Handler {
 	}
 
 	@Override
-	public void attribute() {
+	public void attribute(QName qName, String value) {
 		// TODO Auto-generated method stub
 		
 	}
